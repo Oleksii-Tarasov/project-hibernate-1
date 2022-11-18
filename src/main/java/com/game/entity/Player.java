@@ -1,15 +1,12 @@
 package com.game.entity;
 
-import org.hibernate.annotations.OptimisticLock;
-import org.springframework.lang.NonNull;
+import jakarta.persistence.*;
 
-import javax.persistence.*;
 import java.util.Date;
-import java.util.Locale;
 
 
 @Entity
-@Table(name = "player", schema = "rpg")
+@Table(schema = "rpg", name = "player")
 public class Player {
     @Id
     @Column(nullable = false)
@@ -21,12 +18,12 @@ public class Player {
     @Column(length = 30, nullable = false)
     private String title;
 
-    @Column(nullable = false)
     @Enumerated(EnumType.ORDINAL)
+    @Column(nullable = false)
     private Race race;
 
-    @Column(nullable = false)
     @Enumerated(EnumType.ORDINAL)
+    @Column(nullable = false)
     private Profession profession;
 
     @Column(nullable = false)
